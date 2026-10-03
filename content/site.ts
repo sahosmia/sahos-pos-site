@@ -89,6 +89,8 @@ export const site = {
     notFoundTitle: { bn: 'পেজটা পাওয়া যায়নি', en: 'Page not found' },
     notFoundBody: { bn: 'আপনি যে পেজটা খুঁজছেন সেটা নেই বা সরানো হয়েছে।', en: 'The page you are looking for does not exist or has moved.' },
     copyright: { bn: '© ২০২৬ Sahos POS', en: '© 2026 Sahos POS' },
+    viewAllFaqs: { bn: 'সব প্রশ্ন ও উত্তর দেখুন', en: 'See all FAQs' },
+    allFaqs: { bn: 'সকল প্রশ্নোত্তর', en: 'All FAQs' },
   },
 
   // ───────── হোম ─────────

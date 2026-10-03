@@ -61,7 +61,7 @@ export default async function Home({ params }: PageProps<'/[lang]'>) {
         <ModulesSection lang={lang} />
         <Comfort lang={lang} />
         <HowItWorks lang={lang} />
-        <Faq lang={lang} />
+        <Faq lang={lang} limit={4} />
         <Contact lang={lang} />
       </main>
       <Footer lang={lang} />
