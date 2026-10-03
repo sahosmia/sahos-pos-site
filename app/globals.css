@@ -1,0 +1,118 @@
+@import "tailwindcss";
+
+/* ডিজাইনের রং ও ফন্ট — এখানে বদলালে পুরো সাইটে বদলাবে */
+@theme {
+  --font-sans: "Hind Siliguri", ui-sans-serif, system-ui, sans-serif;
+
+  --color-ground: #f6f7fb; /* পেজের ব্যাকগ্রাউন্ড */
+  --color-ink: #0f1424; /* মূল লেখা */
+  --color-body: #3e4659; /* অনুচ্ছেদ */
+  --color-muted: #535b6e; /* ছোট লেখা */
+  --color-line: #dde2ee; /* বর্ডার */
+  --color-line-strong: #c9d0e0;
+  --color-panel: #eef1fa; /* মডিউল সেকশনের ব্যাকগ্রাউন্ড */
+
+  --color-brand: #2f5be0; /* বাটন, লিংক (সাদা লেখার সাথে কন্ট্রাস্ট ঠিক আছে) */
+  --color-brand-deep: #1e40b0;
+  --color-brand-mark: #5b84ff; /* লোগোর নীল, চার্ট */
+  --color-brand-soft: #e8eeff;
+  --color-brand-tint: #dce5ff;
+
+  --color-night: #0f1424; /* গাঢ় সেকশন ও ফুটার */
+  --color-night-card: #171d33;
+  --color-night-line: #262e48;
+  --color-night-text: #b7bfd3;
+
+  --color-warn: #8a4b08;
+  --color-warn-soft: #fff1dc;
+  --color-warn-glow: #f2c27a;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--color-ground);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  line-height: 1.7;
+}
+
+/* স্টিকি হেডারের নিচে সেকশনের শিরোনাম যেন ঢাকা না পড়ে */
+section[id] {
+  scroll-margin-top: 80px;
+}
+
+/* FAQ: <details>-এর ডিফল্ট তীর লুকানো */
+summary::-webkit-details-marker {
+  display: none;
+}
+summary {
+  list-style: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-14px) rotate(2deg); }
+}
+@keyframes float-slower {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(-2deg); }
+}
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+@keyframes pulse-ring {
+  0% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.45); }
+  70% { box-shadow: 0 0 0 14px rgba(37, 99, 235, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); }
+}
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+@keyframes bar-grow {
+  from { transform: scaleY(0.15); }
+  to { transform: scaleY(1); }
+}
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes ping-dot {
+  0% { transform: scale(1); opacity: 1; }
+  75%, 100% { transform: scale(2.4); opacity: 0; }
+}
+
+@layer utilities {
+  .animate-float-slow { animation: float-slow 7s ease-in-out infinite; }
+  .animate-float-slower { animation: float-slower 9s ease-in-out infinite; }
+  .animate-pulse-ring { animation: pulse-ring 2.4s cubic-bezier(0.4,0,0.6,1) infinite; }
+  .animate-bar-grow { animation: bar-grow 1.1s cubic-bezier(0.22,1,0.36,1) both; transform-origin: bottom; }
+  .animate-fade-up { animation: fade-up 0.6s cubic-bezier(0.22,1,0.36,1) both; }
+  .animate-ping-dot { animation: ping-dot 1.8s cubic-bezier(0,0,0.2,1) infinite; }
+  .animate-gradient {
+    background-size: 200% 200%;
+    animation: gradient-shift 6s ease infinite;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-float-slow,
+  .animate-float-slower,
+  .animate-pulse-ring,
+  .animate-bar-grow,
+  .animate-fade-up,
+  .animate-ping-dot,
+  .animate-gradient { animation: none !important; }
+}
