@@ -8,7 +8,10 @@ import { pick } from '@/lib/i18n';
 import { MobileMenu } from './MobileMenu';
 
 export function Header({ lang, onHome = true }: { lang: Lang; onHome?: boolean }) {
-  const anchor = (h: string) => (onHome ? h : `/${lang}${h}`);
+  const anchor = (h: string) => {
+    if (h.startsWith('/')) return `/${lang}${h}`;
+    return onHome ? h : `/${lang}${h}`;
+  };
   const navItems = site.nav.map((n) => ({ href: anchor(n.href), label: pick(n.label, lang) }));
 
   const [scrolled, setScrolled] = useState(false);

@@ -2,13 +2,24 @@
 
 import { useState } from 'react';
 import { ArrowRight, Plus } from 'lucide-react';
+import Link from 'next/link';
 import { site, type Lang } from '@/content/site';
 import { pick } from '@/lib/i18n';
 import { Container, SectionHeading } from './ui';
 
-export function Faq({ lang }: { lang: Lang }) {
+export function Faq({
+  lang,
+  limit,
+  isStandalone = false,
+}: {
+  lang: Lang;
+  limit?: number;
+  isStandalone?: boolean;
+}) {
   const f = site.home.faqSection;
   const [open, setOpen] = useState<number | null>(0);
+
+  const faqItems = limit ? site.faq.slice(0, limit) : site.faq;
 
   return (
     <section id="faq" className="relative px-4 pb-24 pt-[72px] sm:px-6">
@@ -24,21 +35,36 @@ export function Faq({ lang }: { lang: Lang }) {
             title={pick(f.title, lang)}
             lead={pick(f.lead, lang)}
           />
-          <a
-            href="#contact"
-            className="group inline-flex min-h-11 items-center gap-1.5 self-start font-semibold text-brand transition-colors hover:text-brand-deep"
-          >
-            {pick(site.ui.contactUs, lang)}
-            <ArrowRight
-              size={18}
-              aria-hidden
-              className="transition-transform duration-300 group-hover:translate-x-1"
-            />
-          </a>
+          <div className="flex flex-col gap-2 self-start">
+            {limit && (
+              <Link
+                href={`/${lang}/faq`}
+                className="group inline-flex min-h-11 items-center gap-1.5 font-semibold text-brand transition-colors hover:text-brand-deep"
+              >
+                {pick(site.ui.viewAllFaqs, lang)}
+                <ArrowRight
+                  size={18}
+                  aria-hidden
+                  className="transition-transform duration-300 group-hover:translate-x-1"
+                />
+              </Link>
+            )}
+            <a
+              href={isStandalone ? `/${lang}#contact` : '#contact'}
+              className="group inline-flex min-h-11 items-center gap-1.5 font-medium text-body transition-colors hover:text-ink"
+            >
+              {pick(site.ui.contactUs, lang)}
+              <ArrowRight
+                size={18}
+                aria-hidden
+                className="transition-transform duration-300 group-hover:translate-x-1"
+              />
+            </a>
+          </div>
         </div>
 
         <div className="flex min-w-0 flex-[999_1_560px] flex-col gap-2.5">
-          {site.faq.map((item, i) => {
+          {faqItems.map((item, i) => {
             const isOpen = open === i;
             return (
               <div
@@ -93,6 +119,22 @@ export function Faq({ lang }: { lang: Lang }) {
               </div>
             );
           })}
+
+          {limit && (
+            <div className="mt-2 flex justify-start">
+              <Link
+                href={`/${lang}/faq`}
+                className="group inline-flex min-h-11 items-center gap-2 rounded-xl border border-brand/30 bg-brand/5 px-5 py-2.5 font-semibold text-brand transition-all duration-300 hover:border-brand hover:bg-brand hover:text-white"
+              >
+                {pick(site.ui.viewAllFaqs, lang)}
+                <ArrowRight
+                  size={18}
+                  aria-hidden
+                  className="transition-transform duration-300 group-hover:translate-x-1"
+                />
+              </Link>
+            </div>
+          )}
         </div>
       </Container>
     </section>

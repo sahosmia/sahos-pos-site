@@ -7,7 +7,10 @@ import { Container } from './ui';
 export function Footer({ lang, onHome = true }: { lang: Lang; onHome?: boolean }) {
   const c = site.contact;
   const address = pick(c.address, lang);
-  const anchor = (h: string) => (onHome ? h : `/${lang}${h}`);
+  const anchor = (h: string) => {
+    if (h.startsWith('/')) return `/${lang}${h}`;
+    return onHome ? h : `/${lang}${h}`;
+  };
 
   const linkClass =
     'group/link relative inline-block w-fit text-[15px] text-night-text transition-colors duration-300 hover:text-white';
@@ -59,6 +62,10 @@ export function Footer({ lang, onHome = true }: { lang: Lang; onHome?: boolean }
 
             <div className="flex flex-col gap-1.5">
               <span className="mb-1 font-bold text-white">{pick(site.ui.footerOther, lang)}</span>
+              <Link href={`/${lang}/faq`} className={linkClass}>
+                {pick(site.ui.allFaqs, lang)}
+                {underline}
+              </Link>
               <Link href={`/${lang}/privacy`} className={linkClass}>
                 {pick(site.ui.privacy, lang)}
                 {underline}
