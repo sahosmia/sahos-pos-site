@@ -1,6 +1,8 @@
 import type { MetadataRoute } from 'next';
 import { langs, site } from '@/content/site';
 
+export const dynamic = 'force-static';
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = site.brand.url;
   const paths = ['', '/privacy', '/terms'];

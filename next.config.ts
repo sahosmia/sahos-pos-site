@@ -1,11 +1,9 @@
 import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
-  output: 'export', 
-  // "/" এলে বাংলা সংস্করণে পাঠায়
-  async redirects() {
-    return [{ source: '/', destination: '/bn', permanent: false }];
-  },
+  output: 'export',
+  // /bn/ ও /en/ ফোল্ডার + index.html — Apache/Hostinger-এ ঠিকমতো চলে
+  trailingSlash: true,
 };
 
 export default nextConfig;

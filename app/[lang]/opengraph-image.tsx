@@ -4,6 +4,12 @@ import { ImageResponse } from 'next/og';
 
 // ফেসবুক/WhatsApp-এ লিংক শেয়ার করলে যে ছবি দেখায়।
 // (OG ইমেজ-জেনারেটর বাংলা যুক্তাক্ষর ঠিকমতো আঁকতে পারে না, তাই লেখা ইংরেজিতে।)
+export const dynamic = 'force-static';
+
+export function generateStaticParams() {
+  return [{ lang: 'bn' }, { lang: 'en' }];
+}
+
 export const alt = 'Sahos POS — POS & accounting software for shops';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
