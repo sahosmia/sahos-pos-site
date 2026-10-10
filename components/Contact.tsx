@@ -23,18 +23,18 @@ export function Contact({ lang }: { lang: Lang }) {
       event: undefined,
       value: isSet(c.email) ? c.email : pick(site.ui.emailPlaceholder, lang),
     },
-    {
-      icon: MapPin,
-      href: undefined,
-      event: undefined,
-      value: isSet(address) ? address : pick(site.ui.addressPlaceholder, lang),
-    },
-    {
-      icon: Clock,
-      href: undefined,
-      event: undefined,
-      value: pick(c.hours, lang),
-    },
+  //   {
+  //     icon: MapPin,
+  //     href: undefined,
+  //     event: undefined,
+  //     value: isSet(address) ? address : pick(site.ui.addressPlaceholder, lang),
+  //   },
+  //   {
+  //     icon: Clock,
+  //     href: undefined,
+  //     event: undefined,
+  //     value: pick(c.hours, lang),
+  //   },
   ];
 
   return (

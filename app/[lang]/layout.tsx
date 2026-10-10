@@ -54,7 +54,7 @@ export default async function RootLayout({ children, params }: LayoutProps<'/[la
 
   return (
     <html lang={lang}>
-      <body className="min-h-screen bg-ground text-ink antialiased">{children}</body>
+      <body suppressHydrationWarning className="min-h-screen bg-ground text-ink antialiased">{children}</body>
     </html>
   );
 }

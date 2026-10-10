@@ -43,14 +43,14 @@ export const site = {
   // ───────── যোগাযোগ ─────────
   // {{…}} থাকা মান সাইটে প্লেসহোল্ডার হিসেবে দেখায়। আসল মান বসালেই সব জায়গায় নিজে বসে যাবে।
   contact: {
-    phone: '{{PHONE}}', // যেমন +8801XXXXXXXXX
-    whatsapp: '{{WHATSAPP}}', // কান্ট্রি-কোডসহ, + ছাড়া: 8801XXXXXXXXX
-    email: '{{EMAIL}}',
+    phone: '+8801998172728', // যেমন +8801XXXXXXXXX
+    whatsapp: '8801998172728', // কান্ট্রি-কোডসহ, + ছাড়া: 8801XXXXXXXXX
+    email: 'sahospos@gmail.com',
     address: { bn: '{{ঠিকানা}}', en: '{{Address}}' },
     hours: { bn: 'শনি–বৃহস্পতি, সকাল ১০টা – সন্ধ্যা ৭টা', en: 'Sat–Thu, 10am – 7pm' },
-    social: { facebook: '{{URL}}', youtube: '{{URL}}' },
+    social: { facebook: 'https://www.facebook.com/sahospos', youtube: '{{URL}}' },
     whatsappPrefill: {
-      bn: 'আসসালামু আলাইকুম, Sahos POS-এর একটা ডেমো দেখতে চাই।',
+      bn: 'আসসালামু আলাইকুম, Sahos POS-এর সম্পর্কে আরো বিস্তারিত জানতে চাই ।',
       en: 'Hello, I would like a demo of Sahos POS.',
     },
   },
@@ -89,6 +89,8 @@ export const site = {
     notFoundTitle: { bn: 'পেজটা পাওয়া যায়নি', en: 'Page not found' },
     notFoundBody: { bn: 'আপনি যে পেজটা খুঁজছেন সেটা নেই বা সরানো হয়েছে।', en: 'The page you are looking for does not exist or has moved.' },
     copyright: { bn: '© ২০২৬ Sahos POS', en: '© 2026 Sahos POS' },
+    viewAllFaqs: { bn: 'সব প্রশ্ন ও উত্তর দেখুন', en: 'See all FAQs' },
+    allFaqs: { bn: 'সকল প্রশ্নোত্তর', en: 'All FAQs' },
   },
 
   // ───────── হোম ─────────
